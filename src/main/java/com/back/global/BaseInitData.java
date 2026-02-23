@@ -54,6 +54,7 @@ public class BaseInitData {
         // select * from post where id = 1;
     }
 
+
     @Transactional
     void work3() {
         Post post = postService.findById(1).get();
