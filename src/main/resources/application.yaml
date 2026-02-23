@@ -3,7 +3,11 @@ server:
 
 spring:
   application:
-    name: demo
+    name: back
+
+  output:
+    ansi:
+      enabled: always
 
   datasource:
     url: jdbc:h2:./db_dev;MODE=MySQL
@@ -20,3 +24,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
