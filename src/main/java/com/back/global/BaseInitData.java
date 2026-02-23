@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class BaseInitData {
 
     @Autowired
@@ -23,10 +24,7 @@ public class BaseInitData {
     ApplicationRunner initDataRunner() {
         return args -> {
 
-            new Thread(() -> {
-                self.work1();
-            }).start();
-
+            self.work1();
             self.work2();
         };
     }
@@ -52,4 +50,5 @@ public class BaseInitData {
         postService.findById(1);
         // select * from post where id = 1;
     }
+
 }
