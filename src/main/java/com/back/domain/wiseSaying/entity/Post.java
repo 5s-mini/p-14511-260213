@@ -2,22 +2,20 @@ package com.back.domain.wiseSaying.entity;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(length = 100, nullable = false)
-    private String title;
+    private final String title = "";
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
+    private final String content = "";
 
-    public Post(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
 }
