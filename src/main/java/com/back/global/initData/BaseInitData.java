@@ -1,5 +1,6 @@
 package com.back.global.initData;
 
+import com.back.domain.member.entity.Member;
 import com.back.domain.member.service.MemberService;
 import com.back.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -37,8 +38,11 @@ public class BaseInitData {
             return;
         }
 
-        postService.write(3, "제목1", "내용1");
-        postService.write(4, "제목2", "내용2");
+        Member author1 = memberService.findById(3).get();
+        Member author2 = memberService.findById(4).get();
+
+        postService.write(author1, "제목1", "내용1");
+        postService.write(author2, "제목2", "내용2");
     }
 
     @Transactional
