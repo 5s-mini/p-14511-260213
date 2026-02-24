@@ -22,7 +22,7 @@ public class BaseInitData {
     private final PostService postService;
 
     @Bean
-    ApplicationRunner initDataRunner() {
+    ApplicationRunner devInitData() {
         return args -> {
 
             self.work1();

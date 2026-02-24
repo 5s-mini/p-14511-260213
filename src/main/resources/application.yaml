@@ -3,17 +3,13 @@ server:
 
 spring:
   application:
-    name: back
+    name: demo
+  profiles:
+    active: dev
 
   output:
     ansi:
       enabled: always
-
-  datasource:
-    url: jdbc:h2:./db_dev;MODE=MySQL
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
 
   jpa:
     properties:
@@ -25,7 +21,9 @@ spring:
       ddl-auto: update
     show-sql: true
 
+
 logging:
   level:
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
+    org.springframework.transaction.interceptor: TRACE
